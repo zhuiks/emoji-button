@@ -5,6 +5,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
+import strip from '@rollup/plugin-strip';
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -41,6 +42,7 @@ export default {
     typescript(),
     resolve(),
     commonjs(),
+    production && strip({ include: '**/*.ts'}),
     production && terser()
   ]
 };
