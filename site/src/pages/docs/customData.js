@@ -1,6 +1,6 @@
 import React from 'react';
 
-import frEmojiData from '@roderickhsiao/emoji-button-locale-data/dist/fr';
+import localeEmojiData from '../../../../src/data/emoji_uk.json';
 
 import DocLayout from '../../components/DocLayout';
 import Example from '../../components/Example';
@@ -13,7 +13,7 @@ export default function CustomData() {
     <DocLayout>
       <h1>Custom Emoji Data</h1>
       <p>
-        Emoji Button ships with English emoji data. If your site or app is in a
+         Emoji Button ships with English emoji data. If your site or app is in a
         different language, you probably want to use emoji data with translated
         emoji names. This can most easily be done by installing the package{' '}
         <a href="https://www.npmjs.com/package/@roderickhsiao/emoji-button-locale-data">
@@ -23,7 +23,7 @@ export default function CustomData() {
       </p>
 
       <div>
-        <Example options={{ emojiData: frEmojiData }} />
+        <Example options={{ emojiData: localeEmojiData }} />
       </div>
 
       <SourceFile src={customDataExample} />

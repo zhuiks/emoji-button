@@ -1,6 +1,6 @@
 import { EmojiButton } from '@joeattardi/emoji-button';
-import frEmojiData from '@roderickhsiao/emoji-button-locale-data/dist/fr';
+import localeEmojiData from '../../dist/locale/emoji_uk.json';
 
 const picker = new EmojiButton({
-  emojiData: frEmojiData
+  emojiData: localeEmojiData
 });
