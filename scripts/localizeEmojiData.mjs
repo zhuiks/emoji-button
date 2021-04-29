@@ -43,7 +43,7 @@ for await (const locale of avaliableLocales) {
 
   const filename = `${dataPath}/emoji_${locale}.json`;
   try {
-    await fs.writeFile(filename, JSON.stringify(data, null, 4));
+    await fs.writeFile(filename, JSON.stringify(data));
     console.log(`${locale.toUpperCase()}: File "${filename}" written succesfuly!`);
   } catch (err) {
     console.log(err);

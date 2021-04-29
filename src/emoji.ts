@@ -70,6 +70,8 @@ export class Emoji {
       save(this.emoji, this.options);
     }
 
+    console.log(`Emoji selected: "${this.emoji.emoji}" ${this.emoji.name}`);
+    
     this.events.emit(EMOJI, {
       emoji: this.emoji,
       showVariants: this.showVariants,

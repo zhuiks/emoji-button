@@ -38,7 +38,7 @@ function doSearch(search: string, emojiData: EmojiKeyword[]) {
       result.indexes[result.indexes.length - 1] - result.indexes[0] < search.length + 2 // otherwise keep all the search letters not far appart 
     )
     .map(result => {
-      console.log(result.score, result.obj.emoji.emoji, fuzzysort.highlight(result, '-|', '|-'));
+      console.log(result.score, result.obj.emoji.emoji, fuzzysort.highlight(result, '[', ']'));
       return result.obj.emoji
     });
   return [...new Set(result)];

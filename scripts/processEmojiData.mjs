@@ -29,7 +29,19 @@ const EXCLUDE_LIST = [
   'red hair',
   'white hair',
   'curly hair',
-  'bald'
+  'bald',
+  'smiling face',
+  'middle finger',
+  'family: man, man, boy',
+  'family: man, man, girl',
+  'family: man, man, boy, boy',
+  'family: man, man, girl, boy',
+  'family: man, man, girl, girl',
+  'family: woman, woman, boy',
+  'family: woman, woman, girl',
+  'family: woman, woman, boy, boy',
+  'family: woman, woman, girl, boy',
+  'family: woman, woman, girl, girl',
 ];
 
 const MODIFIER_SUBSTITUTIONS = {
@@ -81,9 +93,6 @@ for await (const line of lineIterator) {
           }
         }
       }
-      if (categoryIndex === 0) {
-        console.log(`       emoji ${matcher[2].trim()}: ${emoji} - ${name}`);
-      }
       if (matcher[2].trim() === 'fully-qualified') {
         data.emoji.push({ sequence, emoji, category: categoryIndex, name, variations: [], version });
       } else if (categoryIndex === 0) {
@@ -96,6 +105,10 @@ for await (const line of lineIterator) {
 let toDelete = [];
 
 EXCLUDE_LIST.forEach(name => toDelete.push(data.emoji.find(e => e.name === name)));
+console.log('Prepare to delete:');
+toDelete.forEach(e => {
+  e && console.log(`   x ${e.emoji} - ${e.name}`);
+});
 
 const emojisWithVariations = data.emoji.filter(emoji => emoji.name.includes(':') && !emoji.name.startsWith('family'));
 emojisWithVariations.forEach(emoji => {
@@ -108,6 +121,7 @@ emojisWithVariations.forEach(emoji => {
 });
 
 // Cleanup
+console.log('Cleaning up!');
 data.emoji = data.emoji.filter(e => !toDelete.includes(e));
 data.emoji.forEach(emoji => {
   delete emoji.sequence;

@@ -120,12 +120,6 @@
             "version": "1.0"
         },
         {
-            "emoji": "☺️",
-            "category": 0,
-            "name": "smiling face",
-            "version": "1.0"
-        },
-        {
             "emoji": "😚",
             "category": 0,
             "name": "kissing face with closed eyes",
@@ -1152,19 +1146,6 @@
                 "👆🏽",
                 "👆🏾",
                 "👆🏿"
-            ],
-            "version": "1.0"
-        },
-        {
-            "emoji": "🖕",
-            "category": 1,
-            "name": "middle finger",
-            "variations": [
-                "🖕🏻",
-                "🖕🏼",
-                "🖕🏽",
-                "🖕🏾",
-                "🖕🏿"
             ],
             "version": "1.0"
         },
@@ -5131,66 +5112,6 @@
             "emoji": "👨‍👩‍👧‍👧",
             "category": 1,
             "name": "family: man, woman, girl, girl",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👨‍👨‍👦",
-            "category": 1,
-            "name": "family: man, man, boy",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👨‍👨‍👧",
-            "category": 1,
-            "name": "family: man, man, girl",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👨‍👨‍👧‍👦",
-            "category": 1,
-            "name": "family: man, man, girl, boy",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👨‍👨‍👦‍👦",
-            "category": 1,
-            "name": "family: man, man, boy, boy",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👨‍👨‍👧‍👧",
-            "category": 1,
-            "name": "family: man, man, girl, girl",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👩‍👩‍👦",
-            "category": 1,
-            "name": "family: woman, woman, boy",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👩‍👩‍👧",
-            "category": 1,
-            "name": "family: woman, woman, girl",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👩‍👩‍👧‍👦",
-            "category": 1,
-            "name": "family: woman, woman, girl, boy",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👩‍👩‍👦‍👦",
-            "category": 1,
-            "name": "family: woman, woman, boy, boy",
-            "version": "2.0"
-        },
-        {
-            "emoji": "👩‍👩‍👧‍👧",
-            "category": 1,
-            "name": "family: woman, woman, girl, girl",
             "version": "2.0"
         },
         {
