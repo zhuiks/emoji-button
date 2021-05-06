@@ -18,6 +18,7 @@ export declare class EmojiButton {
     private observer;
     private theme;
     private emojiCategories;
+    triggerElement: HTMLElement;
     constructor(options?: EmojiButtonOptions);
     /**
      * Adds an event listener to the picker.

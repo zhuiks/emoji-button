@@ -109,6 +109,7 @@ export class EmojiButton {
   private theme: EmojiTheme;
 
   private emojiCategories: { [key: string]: EmojiRecord[] };
+  triggerElement: HTMLElement;
 
   constructor(options: EmojiButtonOptions = {}) {
     this.pickerVisible = false;
@@ -246,7 +247,7 @@ export class EmojiButton {
         eventData = this.emitNativeEmoji(emoji);
       }
 
-      this.publicEvents.emit(EMOJI, eventData);
+      this.publicEvents.emit(EMOJI, {...eventData, trigger: this.triggerElement});
 
       if (this.options.autoHide) {
         this.hidePicker();
@@ -590,6 +591,7 @@ export class EmojiButton {
     this.pickerVisible = true;
     this.wrapper.style.display = 'block';
 
+    this.triggerElement = referenceEl;
     this.determineDisplay(referenceEl);
 
     this.focusTrap.activate();
