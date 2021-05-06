@@ -18,7 +18,7 @@ export default {
       name: 'EmojiButton'
     },
     {
-      file: 'dist/node/index.js',
+      file: 'dist/index.cjs.js',
       format: 'cjs',
     }
   ],
