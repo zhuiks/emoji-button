@@ -247,7 +247,7 @@ export class EmojiButton {
         eventData = this.emitNativeEmoji(emoji);
       }
 
-      this.publicEvents.emit(EMOJI, {...eventData, trigger: this.triggerElement});
+      this.publicEvents.emit(EMOJI, { ...eventData, trigger: this.triggerElement });
 
       if (this.options.autoHide) {
         this.hidePicker();
@@ -566,7 +566,7 @@ export class EmojiButton {
         this.hideInProgress = false;
         this.popper && this.popper.destroy();
 
-        this.publicEvents.emit(PICKER_HIDDEN);
+        this.publicEvents.emit(PICKER_HIDDEN, { trigger: this.triggerElement });
       },
       this.options.showAnimation ? 170 : 0
     );
