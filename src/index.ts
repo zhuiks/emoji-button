@@ -247,6 +247,7 @@ export class EmojiButton {
         eventData = this.emitNativeEmoji(emoji);
       }
 
+      console.log('Emoji emitting public event, returning trigger', this.triggerElement.tagName);
       this.publicEvents.emit(EMOJI, { ...eventData, trigger: this.triggerElement });
 
       if (this.options.autoHide) {
@@ -588,6 +589,7 @@ export class EmojiButton {
       return;
     }
 
+    console.log('Emoji picker show triggered by', referenceEl.tagName);
     this.pickerVisible = true;
     this.wrapper.style.display = 'block';
 
