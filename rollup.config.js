@@ -6,6 +6,7 @@ import replace from '@rollup/plugin-replace';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
 import strip from '@rollup/plugin-strip';
+import sourcemaps from 'rollup-plugin-sourcemaps';
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -20,6 +21,7 @@ export default {
     {
       file: 'dist/index.cjs.js',
       format: 'cjs',
+      sourcemap: !production
     }
   ],
   watch: {
@@ -42,6 +44,7 @@ export default {
     typescript(),
     resolve(),
     commonjs(),
+    !production && sourcemaps(),
     production && strip({ include: '**/*.ts'}),
     production && terser()
   ]

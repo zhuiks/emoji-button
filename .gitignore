@@ -5,3 +5,4 @@ test.js
 test.html
 
 src/data
+dist/index.cjs.js.map
