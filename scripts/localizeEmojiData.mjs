@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable prettier/prettier */
 import fs from 'fs/promises';
 
 const cldrPath = 'vendor/cldr-json/cldr-json';
@@ -23,7 +25,7 @@ for await (const locale of avaliableLocales) {
       annotations = (await getJsonData(`${cldrPath}/${annotationTypes.annotationsDerived}/${locale}/annotations.json`))?.annotationsDerived.annotations;
     }
 
-    if (!annotations[emojiUnicodeData.emoji]) {
+    if (!annotations || !annotations[emojiUnicodeData.emoji]) {
       return emojiUnicodeData;
     }
 

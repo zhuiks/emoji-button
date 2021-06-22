@@ -29,11 +29,10 @@ export default {
   },
   plugins: [
     copy({
-      targets: [
-        { src: 'src/data/*.json', dest: 'dist/locale' }
-      ]
+      targets: [{ src: 'src/data/*.json', dest: 'dist/locale' }]
     }),
     replace({
+      preventAssignment: true,
       'process.env.NODE_ENV': JSON.stringify(
         production ? 'production' : 'development'
       )
@@ -45,7 +44,7 @@ export default {
     resolve(),
     commonjs(),
     !production && sourcemaps(),
-    production && strip({ include: '**/*.ts'}),
+    production && strip({ include: '**/*.ts' }),
     production && terser()
   ]
 };
