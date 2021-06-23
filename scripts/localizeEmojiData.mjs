@@ -21,7 +21,7 @@ for await (const locale of avaliableLocales) {
   console.log(`Processing locale ${locale.toUpperCase()}...`);
   const emojis = await Promise.all(emojiData.map(async emojiUnicodeData => {
     let annotations = (await getJsonData(`${cldrPath}/${annotationTypes.annotations}/${locale}/annotations.json`))?.annotations.annotations;
-    if (!annotations[emojiUnicodeData.emoji]) {
+    if (!annotations || !annotations[emojiUnicodeData.emoji]) {
       annotations = (await getJsonData(`${cldrPath}/${annotationTypes.annotationsDerived}/${locale}/annotations.json`))?.annotationsDerived.annotations;
     }
 
@@ -29,14 +29,20 @@ for await (const locale of avaliableLocales) {
       return emojiUnicodeData;
     }
 
-    const emoji = annotations[emojiUnicodeData.emoji];
-    return {
-      ...emojiUnicodeData,
-      name: emoji.tts[0],
-      keywords: emoji.default.join(' | ')
+    let result = emojiUnicodeData;
+    try {
+      const emoji = annotations[emojiUnicodeData.emoji];
+      result = {
+        ...emojiUnicodeData,
+        name: emoji.tts ? emoji.tts[0] : emoji.default[0],
+        keywords: emoji.default.join(' | ')
+      };
+    } catch(err) {
+      console.error(`${locale.toUpperCase()}: ${emojiUnicodeData.emoji}`, err);
     }
-
+    return result;
   }));
+  
   console.log(`${locale.toUpperCase()}: Processed ${emojis.length} emoji annotations. Saving to JSON file...`);
   const data = {
     categories: originalData.categories,
@@ -60,7 +66,7 @@ async function getLocaleList(cldrJsonPath) {
   } catch (err) {
     console.error(err);
   }
-  return locales;
+  return locales.filter(locale => locale.length === 2); // process only 2-letter code locales
 }
 
 async function getJsonData(filename) {
