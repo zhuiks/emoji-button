@@ -1,3 +1,7 @@
+As for now, this is just a fork of @joeattardi [emoji-button](https://github.com/joeattardi/emoji-button/) with added automation for pulling CLDR emoji annotation data (see `scripts`). It is also possible to search emoji by localized keywords.
+
+---
+
 ![Emoji Button](https://user-images.githubusercontent.com/219285/88242435-2864b400-cc5b-11ea-9b77-b4574ad45f4c.png)
 
 
